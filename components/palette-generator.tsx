@@ -23,17 +23,21 @@ const initialState: State = {
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case 'SET_BASE_COLOR':
-      return { ...state, baseColor: action.payload }
+      if (state.baseColor === action.payload) return state;
+      return { ...state, baseColor: action.payload };
     case 'SET_PALETTE_SIZE':
-      return { ...state, paletteSize: action.payload }
+      if (state.paletteSize === action.payload) return state;
+      return { ...state, paletteSize: action.payload };
     case 'SET_HARMONY':
-      return { ...state, harmony: action.payload }
+      if (state.harmony === action.payload) return state;
+      return { ...state, harmony: action.payload };
     case 'SET_PALETTE':
-      return { ...state, palette: action.payload }
+      return { ...state, palette: action.payload };
     case 'SET_COPYING':
-      return { ...state, copying: action.payload }
+      if (state.copying === action.payload) return state;
+      return { ...state, copying: action.payload };
     default:
-      return state
+      return state;
   }
 }
 
